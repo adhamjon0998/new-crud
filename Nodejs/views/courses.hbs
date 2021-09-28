@@ -1,0 +1,37 @@
+<h1>Courses</h1>
+
+{{#if courses.length}}
+
+<div class="carousel">
+    {{#each courses}}
+    <div class="carousel-item">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{img}}" alt="{{title}}">
+            </div>
+            <div class="card-bottom">
+                <div class="card-content">
+                    <span>{{title}}</span>
+                    <p>{{price}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="/courses/{{id}}" target="_blank">Courses</a>
+                    <a href="/courses/edit/{{id}}/edit?allow=true">Edit Courses</a>
+                    <form action="/card/add" method="POST">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" class="btn btn-primary">BUY</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+
+
+{{else}}
+<h1>This page is empty!!</h1>
+
+{{/if}}
