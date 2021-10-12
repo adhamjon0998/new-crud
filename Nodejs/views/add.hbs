@@ -1,0 +1,23 @@
+<h1>Добавить страницу</h1>
+{{#if error}}
+<p class="alert">{{error}}</p>
+{{/if}}
+<form action="/add" method="POST" novalidate>
+    <div class="input-field">
+        <input name="title" id="title" type="text" class="validate" required value="{{data.title}}">
+        <label for="title">Названия курса</label>
+        <span class="helper-text" data-error="Введите названия"></span>
+    </div>
+    <div class="input-field">
+        <input name="price" id="price" type="number" class="validate" min="1" required value="{{data.price}}">
+        <label for="price">Цена курса</label>
+        <span class="helper-text" data-error="Введите цену"></span>
+    </div>
+    <div class="input-field">
+        <input name="img" id="img" type="text" class="validate" required value="{{data.img}}">
+        <label for="img">Url картинке</label>
+        <span class="helper-text" data-error="Введите url картинке"></span>
+    </div>
+
+    <button class="btn btn-primary action">Добавить курс</button>
+</form>

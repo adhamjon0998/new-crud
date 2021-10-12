@@ -1,0 +1,41 @@
+<h1>Courses</h1>
+
+{{#if courses.length}}
+<div class="carousel">
+    {{#each courses}}
+    <div class="carousel-item">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{img}}" alt="{{title}}" width="400px" height="500px">
+            </div>
+            <div class="card-bottom">
+                <div class="card-content">
+                    <span class="card-title title">{{title}}</span>
+                    <p class="price price">{{price}}</p>
+                </div>
+                <div class="card-action actions">
+                    <a class="ahref" href="/courses/{{_id}}" target="_blank">Открить курс</a>
+                    {{#if @root.isAuth}}
+
+                    {{#ifeq userId._id @root.userId}}
+                    <a class="ahref" href="/courses/{{id}}/edit?allow=true">Редактировать</a>
+                    {{/ifeq}}
+                    <form action="/card/add" method="POST">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" class="btn btn-primary action">Купить</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+
+
+{{else}}
+<h1>Эта страница пуста!!!</h1>
+
+{{/if}}
